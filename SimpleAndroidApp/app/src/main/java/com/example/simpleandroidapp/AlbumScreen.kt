@@ -3,6 +3,7 @@ package com.example.simpleandroidapp
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Divider
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -37,7 +38,8 @@ fun AlbumList(albums: List<Album>) {
 
 @Composable
 fun AlbumRow(album: Album) {
-    Text(text = album.title, Modifier.padding(8.dp))
+    Text(text = album.title, Modifier.padding(16.dp))
+    Divider()
 }
 
 @Preview(showBackground = true)
