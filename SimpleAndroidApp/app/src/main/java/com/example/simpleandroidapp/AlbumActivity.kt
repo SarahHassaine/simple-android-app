@@ -9,8 +9,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.disposables.CompositeDisposable
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
-    private val viewModel: MainViewModel by viewModels()
+class AlbumActivity : ComponentActivity() {
+    private val viewModel: AlbumViewModel by viewModels()
     private val disposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +18,9 @@ class MainActivity : ComponentActivity() {
         loadAlbums()
         setContent {
             SimpleAndroidAppTheme {
-                AlbumScreen(viewModel.albums)
+                AlbumScreen(viewModel.albums) {
+                    viewModel.sortAlbums(it)
+                }
             }
         }
     }
