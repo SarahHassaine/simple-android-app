@@ -3,16 +3,14 @@ package com.example.simpleandroidapp
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.simpleandroidapp.api.Album
 import com.example.simpleandroidapp.api.ApiService
-import com.google.gson.GsonBuilder
+import com.google.common.truth.Truth.assertThat
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.RelaxedMockK
-import io.mockk.mockk
 import io.reactivex.Single
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import com.google.common.truth.Truth.assertThat
 
 class AlbumViewModelTests {
     @get:Rule

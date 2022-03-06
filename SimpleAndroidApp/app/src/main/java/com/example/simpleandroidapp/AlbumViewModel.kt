@@ -19,6 +19,7 @@ class AlbumViewModel @Inject constructor(private val apiService: ApiService) : V
             .doOnSuccess {
                 albums.clear()
                 albums.addAll(it)
+                sortAlbums(false)
             }
             .ignoreElement()
     }

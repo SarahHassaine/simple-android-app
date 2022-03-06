@@ -13,10 +13,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.simpleandroidapp.api.Album
@@ -24,7 +22,7 @@ import com.example.simpleandroidapp.ui.theme.SimpleAndroidAppTheme
 
 @Composable
 fun AlbumScreen(albums: List<Album>, onSortClicked: (Boolean) -> Unit) {
-    var isDescending by rememberSaveable { mutableStateOf(false) }
+    var isDescending by rememberSaveable { mutableStateOf(true) }
     val rotationAngle by animateFloatAsState(
         targetValue = if (isDescending) -180f else 0f,
         animationSpec = tween(durationMillis = 250)
@@ -38,7 +36,11 @@ fun AlbumScreen(albums: List<Album>, onSortClicked: (Boolean) -> Unit) {
                     onSortClicked(isDescending)
                     isDescending = !isDescending
                 }) {
-                    Icon(painterResource(id = R.drawable.ic_sort_white), stringResource(id = R.string.albums_sort_button_content_description), modifier = Modifier.rotate(rotationAngle))
+                    Icon(
+                        painterResource(id = R.drawable.ic_sort_white),
+                        stringResource(id = R.string.albums_sort_button_content_description),
+                        modifier = Modifier.rotate(rotationAngle)
+                    )
                 }
             }
         )
