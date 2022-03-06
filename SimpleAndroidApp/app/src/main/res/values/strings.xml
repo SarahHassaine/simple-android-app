@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Simple Android App</string>
     <string name="albums_title">Albums</string>
+    <string name="albums_sort_button_content_description">Sort button</string>
 </resources>
